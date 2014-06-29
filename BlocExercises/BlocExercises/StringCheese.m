@@ -16,14 +16,14 @@
 }
 
 - (NSString *) cheeseNameWithoutCheeseSuffix:(NSString *)cheeseName {
-    NSString *newCheese = cheeseName;
-    NSRange cheeseRange = [newCheese rangeOfString:@" cheese"];
-    NSString *takeAwayCheese = [newCheese stringByReplacingCharactersInRange:cheeseRange withString:@""];
-    return takeAwayCheese;
+    NSString *newCheese = cheeseName;    
+    newCheese = [newCheese stringByReplacingOccurrencesOfString:@" cheese" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [newCheese length])];
+    
+    return newCheese;
 }
 
 - (NSString *) numberOfCheesesStringWithCheeseCount:(NSUInteger)cheeseCount {
-    NSString *stringCheeseHa = [NSString stringWithFormat:@"%ld cheeses", (long)cheeseCount];
+    NSString *stringCheeseHa = [NSString stringWithFormat:@"%ld cheese", (long)cheeseCount];
     return stringCheeseHa;
 }
 
