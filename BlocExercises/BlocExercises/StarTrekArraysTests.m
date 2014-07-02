@@ -59,6 +59,13 @@
     XCTAssertEqualObjects(expectedArray, actualArray, @"Alphabetization didn't work correctly.");
 }
 
+- (void) testThatAlphabetizationWorksHarder {
+    NSArray *inputArray = @[@"baskin", @"baskinRobins", @"bask"];
+    NSArray *expectedArray = @[@"bask", @"baskin", @"baskinRobins"];
+    NSArray *actualArray = [self.starTrekArrays alphabeticallySortedStarTrekCharactersFromArray:inputArray];
+    XCTAssertEqualObjects(expectedArray, actualArray, @"Alphabetization didn't work correctly.");
+}
+
 - (void) testThatCharacterArrayDetectsWorfIfPresent {
     NSArray *inputArray = @[self.picard, self.crusher, self.worf];
     BOOL worfIsPresent = [self.starTrekArrays characterArrayContainsWorf:inputArray];
